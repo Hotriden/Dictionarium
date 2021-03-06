@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Rifter\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Rifter\\.nuget\\packages"
+    ]
+  }
+}
