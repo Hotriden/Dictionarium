@@ -30,6 +30,11 @@ namespace Dictionarium
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dictionarium", Version = "v1" });
             });
+            #region Context
+            services.AddDbContext<UserModelContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("UserModelContext")));
+            #endregion
+            #region Identity
             services.AddIdentity<IdentityUser, IdentityRole>(config =>
             {
                 config.Password.RequiredLength = 4;
@@ -40,14 +45,14 @@ namespace Dictionarium
 
                 config.Lockout.AllowedForNewUsers = true;
             }).
-                AddEntityFrameworkStores<DictionariumUserContext>().
+                AddEntityFrameworkStores<UserContext>().
                 AddDefaultTokenProviders();
-            services.AddDbContext<DictionariumUserContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DictionariumUserContext")));
+            services.AddDbContext<UserContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("UserContext")));
             services.AddAntiforgery(o => {
                 o.Cookie.Name = "X-CSRF-TOKEN";
             });
-
+            #endregion
             #region Mail manager
             services.AddMailKit(config => config.UseMailKit(Configuration.GetSection("Email").Get<MailKitOptions>()));
             #endregion

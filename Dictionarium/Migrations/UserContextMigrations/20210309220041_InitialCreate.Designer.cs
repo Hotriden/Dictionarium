@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Dictionarium.Migrations
+namespace Dictionarium.Migrations.UserContextMigrations
 {
-    [DbContext(typeof(DictionariumUserContext))]
-    [Migration("20210222225753_AddedUserModel")]
-    partial class AddedUserModel
+    [DbContext(typeof(UserContext))]
+    [Migration("20210309220041_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
