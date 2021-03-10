@@ -20,6 +20,7 @@ namespace Dictionarium.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.UseCollation("Cyrillic_General_CI_AS");
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<WordUserModel>()
                 .HasKey(bc => new { bc.UserId, bc.WordId });

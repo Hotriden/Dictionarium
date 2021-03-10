@@ -9,9 +9,9 @@ namespace Dictionarium.Models
     {
         public int WordId { get; set; }
 
-        public int Name { get; set; }
+        public string Name { get; set; }
 
-        public int Translation { get; set; }
+        public string Translation { get; set; }
 
         public ICollection<WordUserModel> WordUserModels { get; set; }
     }
